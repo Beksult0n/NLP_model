@@ -3,10 +3,10 @@ import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Model va vectorizerni yuklash
-with open("/home/beksulton/Documents/Modul_2/amazon.pkl", "rb") as model_file:
+with open("amazon.pkl", "rb") as model_file:
     model = pickle.load(model_file)
 
-with open("/home/beksulton/Documents/Modul_2/tfidf_vectorizer.pkl", "rb") as vectorizer_file:
+with open("tfidf_vectorizer.pkl", "rb") as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
 # Matnni tozalash funksiyasi
