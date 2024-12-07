@@ -25,7 +25,7 @@ def clean_text(text):
     return " ".join(words)
 
 # Streamlit interfeysi
-st.title("Sentiment Analysis App")
+st.title("Sharhlarni ijobiy yoki salbiyligini aniqlash")
 st.write("Bu dastur Amazon Fine Food sharhlari uchun sentimentni (ijobiy yoki salbiy) aniqlashga yordam beradi.")
 
 # Foydalanuvchi kiriti
