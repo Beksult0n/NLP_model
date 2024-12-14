@@ -27,7 +27,7 @@ def clean_text(text):
 
 # Streamlit interfeysi
 st.title("Sharhlarni ijobiy yoki salbiyligini aniqlash")
-st.write("Bu dastur BERT modeli yordamida sharhlarning sentimentini (ijobiy yoki salbiy) aniqlashga yordam beradi.")
+st.write("Bu dastur Amazon Fine Food sharhlari uchun sentimentni (ijobiy yoki salbiy) aniqlashga yordam beradi.")
 
 # Faylni yuklash (txt formatida)
 uploaded_file = st.file_uploader("Sharhlar faylini yuklang (txt formatida)", type=["txt"])
