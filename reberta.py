@@ -33,7 +33,10 @@ def predict_sentiment(text):
         outputs = model(**inputs)
     logits = outputs.logits
     predicted_class = torch.argmax(logits, dim=1).item()
-    sentiment = "Positive" if predicted_class == 1 else "Negative"
+    
+    # Modeldagi tasnifni to'g'ri joylashtirish
+    sentiment = "Negative" if predicted_class == 0 else "Positive"
+    
     return sentiment
 
 # Streamlit interfeysi
@@ -47,7 +50,7 @@ if uploaded_file is not None:
     # Faylni o'qish
     text_data = uploaded_file.getvalue().decode("utf-8")  # Faylni matnga aylantirish
     
-    # Fayl tarkibini ko‘rsatish (birinchi 500 ta belgi)
+    # Fayl tarkibini ko‘rsatish (boshqa belgilarga qarang)
     st.write("Fayl tarkibi (boshqa belgilarga qarang):")
     st.text(text_data[:500])
 
@@ -68,8 +71,8 @@ if uploaded_file is not None:
     if results:
         st.write("Sentiment natijalari:")
         for review, sentiment in results:
-            st.write(f"Sharh: {review}")
-            st.write(f"Sentiment: {sentiment}")
+            st.markdown(f"**Sharh:** {review}")
+            st.markdown(f"**Sentiment:** {sentiment}")
     else:
         st.write("Faylda faqat bo'sh satrlar bor.")
 else:
@@ -85,6 +88,6 @@ else:
             sentiment = predict_sentiment(cleaned_input)
             
             # Natijani chiqarish
-            st.subheader(f"Natija: {sentiment}")
+            st.subheader(f"**Natija:** {sentiment}")
         else:
             st.error("Iltimos, sharh matnini kiriting!")
